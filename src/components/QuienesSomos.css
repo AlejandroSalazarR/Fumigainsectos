@@ -1,0 +1,311 @@
+.quienes-somos {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  position: relative;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 3rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+.title-underline {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #8fbc3f, #6d9e2f);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.content-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.company-badge {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.badge-icon {
+  font-size: 3rem;
+}
+
+.badge-info h3 {
+  margin: 0 0 0.5rem 0;
+  color: #2c3e50;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.nit {
+  margin: 0;
+  color: #8fbc3f;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.intro-text, .highlight-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #2c3e50;
+  text-align: justify;
+}
+
+.highlight-text {
+  background: white;
+  padding: 1.5rem;
+  border-left: 4px solid #8fbc3f;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.experience-box {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: linear-gradient(135deg, #8fbc3f, #6d9e2f);
+  padding: 2rem;
+  border-radius: 15px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(143, 188, 63, 0.3);
+}
+
+.exp-number {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.exp-text h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.exp-text p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.certifications {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.certifications h4 {
+  margin: 1rem 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.content-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mision-vision {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  margin: 0 0 1rem 0;
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.card p {
+  margin: 0;
+  line-height: 1.7;
+  color: #555;
+  text-align: justify;
+}
+
+.mission-card {
+  border-top: 4px solid #8fbc3f;
+}
+
+.vision-card {
+  border-top: 4px solid #4facfe;
+}
+
+.valores-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.valores-title {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.valores-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.valor-card {
+  text-align: center;
+  padding: 1.2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.valor-card:hover {
+  background: #8fbc3f;
+  color: white;
+  transform: scale(1.05);
+}
+
+.valor-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.valor-card h4 {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.valor-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.politica-section {
+  background: white;
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.politica-section h3 {
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.politica-section p {
+  line-height: 1.8;
+  color: #555;
+  font-size: 1.1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+@media (max-width: 968px) {
+  .quienes-somos {
+    padding: 4rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .valores-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-box {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .company-badge {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro-text, .highlight-text {
+    font-size: 1rem;
+  }
+
+  .exp-number {
+    font-size: 3rem;
+  }
+
+  .politica-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .politica-section h3 {
+    font-size: 1.5rem;
+  }
+
+  .politica-section p {
+    font-size: 1rem;
+  }
+}

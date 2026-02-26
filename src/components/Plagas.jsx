@@ -1,0 +1,184 @@
+import { useState } from 'react';
+import './Plagas.css';
+
+const Plagas = () => {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const categorias = [
+    {
+      id: 'rastreros',
+      title: 'Insectos Rastreros',
+      icon: '🪳',
+      color: '#8fbc3f',
+      plagas: [
+        { nombre: 'Cucaracha Alemana', descripcion: 'Control especializado para cucarachas de cocina', emoji: '🪳' },
+        { nombre: 'Cucaracha Americana', descripcion: 'Eliminación de cucarachas grandes', emoji: '🪳' },
+        { nombre: 'Cucaracha Oriental', descripcion: 'Tratamiento para cucarachas de exterior', emoji: '🪳' },
+        { nombre: 'Hormigas', descripcion: 'Control de colonias completas', emoji: '🐜' },
+        { nombre: 'Arañas', descripcion: 'Eliminación segura de arácnidos', emoji: '🕷️' },
+        { nombre: 'Cien Pies', descripcion: 'Control de miriápodos', emoji: '🦗' },
+        { nombre: 'Mil Pies', descripcion: 'Tratamiento preventivo y correctivo', emoji: '🐛' },
+        { nombre: 'Otros Rastreros', descripcion: 'Soluciones para diversas plagas', emoji: '🦂' }
+      ]
+    },
+    {
+      id: 'voladores',
+      title: 'Insectos Voladores',
+      icon: '🦟',
+      color: '#4facfe',
+      plagas: [
+        { nombre: 'Zancudos', descripcion: 'Control de mosquitos transmisores', emoji: '🦟' },
+        { nombre: 'Moscas', descripcion: 'Eliminación de moscas domésticas', emoji: '🪰' },
+        { nombre: 'Mosquitos', descripcion: 'Prevención de picaduras', emoji: '🦟' },
+        { nombre: 'Polillas', descripcion: 'Protección de textiles y alimentos', emoji: '🦋' },
+        { nombre: 'Cucarrones', descripcion: 'Control de escarabajos', emoji: '🪲' },
+        { nombre: 'Mariposas', descripcion: 'Manejo de lepidópteros', emoji: '🦋' },
+        { nombre: 'Otros Voladores', descripcion: 'Soluciones integrales', emoji: '🐝' }
+      ]
+    },
+    {
+      id: 'roedores',
+      title: 'Roedores',
+      icon: '🐀',
+      color: '#f5576c',
+      plagas: [
+        { nombre: 'Rata Noruega', descripcion: 'Control de ratas de alcantarilla', emoji: '🐀' },
+        { nombre: 'Ratón Doméstico', descripcion: 'Eliminación de ratones caseros', emoji: '🐭' },
+        { nombre: 'Rata de Tejado', descripcion: 'Control de ratas trepadoras', emoji: '🐀' }
+      ]
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % categorias.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + categorias.length) % categorias.length);
+  };
+
+  const toggleCategory = (categoryId) => {
+    setSelectedCategory(selectedCategory === categoryId ? null : categoryId);
+  };
+
+  return (
+    <section id="plagas" className="plagas">
+      <div className="container">
+        <div className="section-header">
+          <h2 className="section-title">Realizamos Control Integrado de Plagas</h2>
+          <div className="title-underline"></div>
+          <p className="section-subtitle">
+            Especialistas en el control de todo tipo de plagas urbanas
+          </p>
+        </div>
+
+        {/* Carrusel de categorías */}
+        <div className="categorias-carousel">
+          <button className="carousel-btn prev" onClick={prevSlide} aria-label="Anterior">
+            ❮
+          </button>
+
+          <div className="carousel-track">
+            {categorias.map((categoria, index) => (
+              <div
+                key={categoria.id}
+                className={`categoria-slide ${index === currentSlide ? 'active' : ''}`}
+                style={{ '--category-color': categoria.color }}
+              >
+                <div className="categoria-header" onClick={() => toggleCategory(categoria.id)}>
+                  <div className="categoria-icon" style={{ background: categoria.color }}>
+                    {categoria.icon}
+                  </div>
+                  <h3>{categoria.title}</h3>
+                  <button className="expand-btn">
+                    {selectedCategory === categoria.id ? '−' : '+'}
+                  </button>
+                </div>
+
+                <div className={`plagas-grid ${selectedCategory === categoria.id ? 'expanded' : ''}`}>
+                  {categoria.plagas.map((plaga, idx) => (
+                    <div key={idx} className="plaga-card">
+                      <div className="plaga-emoji">{plaga.emoji}</div>
+                      <h4>{plaga.nombre}</h4>
+                      <p>{plaga.descripcion}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <button className="carousel-btn next" onClick={nextSlide} aria-label="Siguiente">
+            ❯
+          </button>
+
+          <div className="carousel-indicators">
+            {categorias.map((_, index) => (
+              <button
+                key={index}
+                className={`indicator ${index === currentSlide ? 'active' : ''}`}
+                onClick={() => setCurrentSlide(index)}
+                aria-label={`Ir a categoría ${index + 1}`}
+              ></button>
+            ))}
+          </div>
+        </div>
+
+        {/* Grid alternativo para desktop */}
+        <div className="categorias-grid-desktop">
+          {categorias.map((categoria) => (
+            <div
+              key={categoria.id}
+              className="categoria-card"
+              style={{ '--category-color': categoria.color }}
+            >
+              <div 
+                className="categoria-header-desktop"
+                onClick={() => toggleCategory(categoria.id)}
+              >
+                <div className="categoria-icon-desktop" style={{ background: categoria.color }}>
+                  {categoria.icon}
+                </div>
+                <h3>{categoria.title}</h3>
+                <button className="expand-btn-desktop">
+                  {selectedCategory === categoria.id ? '−' : '+'}
+                </button>
+              </div>
+
+              <div className={`plagas-list ${selectedCategory === categoria.id ? 'expanded' : ''}`}>
+                {categoria.plagas.map((plaga, idx) => (
+                  <div key={idx} className="plaga-item">
+                    <span className="plaga-emoji-small">{plaga.emoji}</span>
+                    <div className="plaga-info">
+                      <h4>{plaga.nombre}</h4>
+                      <p>{plaga.descripcion}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="plagas-cta">
+          <h3>¿Tiene problemas con alguna de estas plagas?</h3>
+          <p>Contáctenos para una evaluación gratuita y solución inmediata</p>
+          <button 
+            className="cta-button"
+            onClick={() => window.open('https://wa.me/573172681857?text=Hola,%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios', '_blank')}
+          >
+            <span>
+              <svg viewBox="0 0 32 32" width="20" height="20" fill="currentColor" style={{verticalAlign: 'middle'}}>
+                <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.957 0-7.51 6.11-13.62 13.62-13.62s13.62 6.11 13.62 13.62-6.11 13.62-13.62 13.62zM21.305 19.26c-0.346-0.174-2.049-1.007-2.366-1.123-0.316-0.117-0.547-0.174-0.776 0.174s-0.893 1.123-1.094 1.347c-0.201 0.227-0.401 0.255-0.747 0.081s-1.456-0.537-2.774-1.711c-1.026-0.913-1.719-2.042-1.919-2.389s-0.022-0.533 0.152-0.707c0.156-0.155 0.346-0.401 0.518-0.603 0.174-0.201 0.231-0.346 0.347-0.574 0.117-0.227 0.058-0.427-0.028-0.603s-0.776-1.87-1.063-2.565c-0.28-0.672-0.56-0.58-0.776-0.591-0.2-0.008-0.428-0.010-0.656-0.010s-0.603 0.085-0.92 0.427c-0.316 0.346-1.206 1.179-1.206 2.873s1.235 3.333 1.406 3.561c0.174 0.227 2.441 3.729 5.913 5.229 0.827 0.354 1.473 0.566 1.977 0.723 0.831 0.263 1.586 0.226 2.183 0.137 0.666-0.099 2.049-0.835 2.335-1.642 0.288-0.808 0.288-1.501 0.201-1.642-0.086-0.14-0.316-0.227-0.662-0.401z"></path>
+              </svg>
+            </span>
+            Solicitar Servicio Urgente
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Plagas;
