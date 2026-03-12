@@ -90,7 +90,7 @@ npm run preview
 ## 📞 Información de Contacto
 
 - **WhatsApp**: 317-268-18-57
-- **Celular**: 320-268-18-36
+- **Celular**: 317-790-13-50
 - **Email**: serviciosfumigainsectossas@gmail.com
 - **Dirección**: Carrera 45 N° 92-21 oficina 401, Aranjuez, Medellín - Antioquia
 

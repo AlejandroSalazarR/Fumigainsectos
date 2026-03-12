@@ -1,6 +1,10 @@
+import { useState, useEffect } from 'react';
 import './QuienesSomos.css';
 
 const QuienesSomos = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [isAutoScroll, setIsAutoScroll] = useState(true);
+
   const valores = [
     { icon: '⚡', title: 'EFICIENCIA', description: 'Soluciones efectivas con productos de calidad' },
     { icon: '📚', title: 'CONOCIMIENTO', description: 'Personal certificado y capacitado' },
@@ -12,12 +16,69 @@ const QuienesSomos = () => {
     { icon: '✨', title: 'SERVICIO', description: 'Responsabilidad con cada cliente' }
   ];
 
+  useEffect(() => {
+    if (!isAutoScroll) return;
+    
+    const interval = setInterval(() => {
+      setScrollPosition((prev) => {
+        // Avanzar de 4 en 4, y volver al inicio después del último grupo
+        const nextPosition = prev + 4;
+        return nextPosition >= valores.length ? 0 : nextPosition;
+      });
+    }, 3000);
+    
+    return () => clearInterval(interval);
+  }, [isAutoScroll, valores.length]);
+
+  const handleValorClick = (index) => {
+    setScrollPosition(index);
+    setIsAutoScroll(false);
+    setTimeout(() => setIsAutoScroll(true), 5000);
+  };
+
   return (
     <section id="quienes-somos" className="quienes-somos">
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">Quiénes Somos</h2>
           <div className="title-underline"></div>
+        </div>
+
+        {/* Carrusel de Valores al inicio */}
+        <div className="valores-carousel-section">
+          <h3 className="valores-main-title">Nuestros Valores</h3>
+          <div className="valores-carousel">
+            <div 
+              className="valores-track"
+              style={{ transform: `translateX(-${scrollPosition > 0 ? 50 : 0}%)` }}
+            >
+              {valores.map((valor, index) => (
+                <div 
+                  key={index} 
+                  className="valor-item"
+                  onClick={() => handleValorClick(index)}
+                >
+                  <div className="valor-front">
+                    <div className="valor-icon-large">{valor.icon}</div>
+                    <h4 className="valor-title-large">{valor.title}</h4>
+                  </div>
+                  <div className="valor-back">
+                    <p>{valor.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="carousel-dots">
+            {[0, 4].map((index) => (
+              <button
+                key={index}
+                className={`dot ${scrollPosition === index ? 'active' : ''}`}
+                onClick={() => handleValorClick(index)}
+                aria-label={`Ir al grupo ${(index / 4) + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="content-grid">
@@ -31,11 +92,10 @@ const QuienesSomos = () => {
             </div>
 
             <p className="intro-text">
-              Somos una empresa de prestación de servicios en manejo integrado de plagas 
-              constituida en la ciudad de Medellín, brindando siempre un servicio de soluciones 
-              seguras y efectivas competitivo y profesional, de acuerdo con las necesidades de 
-              nuestros clientes, ya sea en el hogar, negocios, fábricas, empresas, hoteles, 
-              restaurantes, clínicas, hospitales, instituciones educativas, entidades bancarias 
+              Somos una empresa de manejo integrado de plagas constituida en la ciudad de Medellín.
+              Brindamos soluciones seguras, profesionales y de alta calidad,
+              adaptándonos a las necesidades de nuestros clientes en el hogar, el comercio,
+              la industria y el sector salud, hoteles, restaurantes, instituciones educativas,
               entre otros.
             </p>
 
@@ -50,53 +110,38 @@ const QuienesSomos = () => {
               <div className="exp-number">✓</div>
               <div className="exp-text">
                 <h4>Servicio Profesional</h4>
-                <p>Brindando soluciones integrales</p>
+                <p>Brindando soluciones integrales en manejo integrado de plagas con productos de salud pública.</p>
               </div>
             </div>
 
             <div className="certifications">
               <h4>✓ Personal capacitado por entidades gubernamentales</h4>
               <h4>✓ Productos químicos de salud pública certificados</h4>
-              <h4>✓ Servicio con garantía y certificados de manejo integrado</h4>
+              <h4>✓ Para asegurar un control de plagas verdaderamente efectivo, nuestro protocolo incluye un tratamiento de refuerzo gratuito programado 15 días después del servicio inicial.</h4>
             </div>
           </div>
 
-          <div className="content-visual">
-            <div className="mision-vision">
-              <div className="card mission-card">
-                <div className="card-icon">🎯</div>
-                <h3>Misión</h3>
-                <p>
-                  FUMIGAINSECTOS S.A.S. es una empresa experta en el servicio de manejo 
-                  integrado de plagas en salud pública, nuestro objetivo primordial es 
-                  satisfacer las necesidades de nuestros clientes brindándoles un servicio 
-                  con calidad y efectividad.
-                </p>
-              </div>
-
-              <div className="card vision-card">
-                <div className="card-icon">🔭</div>
-                <h3>Visión</h3>
-                <p>
-                  FUMIGAINSECTOS S.A.S. es una empresa líder en el servicio de manejo 
-                  integrado de plagas en salud pública, ofreciéndoles un servicio de 
-                  calidad a un precio competitivo que nos permita crecer y mejorar la 
-                  calidad de vida de nuestros clientes.
-                </p>
-              </div>
+          <div className="mision-vision">
+            <div className="card mission-card">
+              <div className="card-icon">🎯</div>
+              <h3>Misión</h3>
+              <p>
+                FUMIGAINSECTOS S.A.S. es una empresa experta en el servicio de manejo 
+                integrado de plagas en salud pública, nuestro objetivo primordial es 
+                satisfacer las necesidades de nuestros clientes brindándoles un servicio 
+                con calidad y efectividad.
+              </p>
             </div>
 
-            <div className="valores-section">
-              <h3 className="valores-title">Nuestros Valores</h3>
-              <div className="valores-grid">
-                {valores.map((valor, index) => (
-                  <div key={index} className="valor-card">
-                    <div className="valor-icon">{valor.icon}</div>
-                    <h4>{valor.title}</h4>
-                    <p>{valor.description}</p>
-                  </div>
-                ))}
-              </div>
+            <div className="card vision-card">
+              <div className="card-icon">🔭</div>
+              <h3>Visión</h3>
+              <p>
+                FUMIGAINSECTOS S.A.S. es una empresa líder en el servicio de manejo 
+                integrado de plagas en salud pública, ofreciéndoles un servicio de 
+                calidad a un precio competitivo que nos permita crecer y mejorar la 
+                calidad de vida de nuestros clientes.
+              </p>
             </div>
           </div>
         </div>

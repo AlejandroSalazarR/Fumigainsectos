@@ -216,6 +216,9 @@
 .contact-btn.email {
   background: #f5576c;
   color: white;
+  font-size: 0.75rem;
+  padding: 0.9rem 0.8rem;
+  word-break: break-all;
 }
 
 .contact-btn.email:hover {
@@ -265,11 +268,22 @@
   font-size: 1.5rem;
   text-decoration: none;
   transition: all 0.3s ease;
+  color: white;
+}
+
+.footer-social a svg {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
 }
 
 .footer-social a:hover {
   background: #8fbc3f;
   transform: translateY(-3px) rotate(5deg);
+}
+
+.footer-social a:hover svg {
+  transform: scale(1.1);
 }
 
 .footer-certifications {

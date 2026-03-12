@@ -1,5 +1,5 @@
 .quienes-somos {
-  padding: 6rem 2rem;
+  padding: 5rem 2rem;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   position: relative;
 }
@@ -9,19 +9,19 @@
   margin: 0 auto;
 }
 
-.section-header {
+.quienes-somos .section-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
-.section-title {
+.quienes-somos .section-title {
   font-size: 3rem;
-  color: #2c3e50;
+  color: #1a1a1a;
   margin-bottom: 1rem;
   font-weight: 800;
 }
 
-.title-underline {
+.quienes-somos .title-underline {
   width: 100px;
   height: 4px;
   background: linear-gradient(90deg, #8fbc3f, #6d9e2f);
@@ -30,16 +30,176 @@
 }
 
 .content-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+/* Carrusel de Valores al inicio */
+.valores-carousel-section {
+  margin-bottom: 3rem;
+  background: white;
+  padding: 1.5rem 2rem 1rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.valores-main-title {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  position: relative;
+}
+
+.valores-main-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #8fbc3f, #6d9e2f);
+  margin: 0.6rem auto 0;
+  border-radius: 2px;
+}
+
+.valores-carousel {
+  overflow: hidden;
+  position: relative;
+  padding: 0.8rem 0 0.4rem;
+  max-width: 100%;
+}
+
+.valores-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 1rem;
+  width: 200%;
+  padding-right: 1rem;
+}
+
+.valor-item {
+  flex: 0 0 calc(12.5% - 0.875rem);
+  min-width: 120px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  padding: 0.8rem 0.7rem;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  perspective: 1000px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.valor-item:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 20px 50px rgba(143, 188, 63, 0.4);
+  z-index: 10;
+}
+
+.valor-front {
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.valor-item:hover .valor-front {
+  opacity: 0;
+  transform: rotateY(180deg);
+}
+
+.valor-back {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateY(-180deg);
+  width: 80%;
+  opacity: 0;
+  transition: all 0.4s ease;
+  text-align: center;
+  pointer-events: none;
+}
+
+.valor-item:hover .valor-back {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotateY(0deg);
+  pointer-events: all;
+}
+
+.valor-item:hover {
+  background: linear-gradient(135deg, #8fbc3f, #6d9e2f);
+}
+
+.valor-icon-large {
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+  transition: transform 0.3s ease;
+}
+
+.valor-item:hover .valor-icon-large {
+  transform: scale(1.2);
+}
+
+.valor-title-large {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0;
+  transition: color 0.3s ease;
+  line-height: 1.1;
+}
+
+.valor-item:hover .valor-title-large {
+  color: white;
+}
+
+.valor-back p {
+  font-size: 0.7rem;
+  line-height: 1.25;
+  color: white;
+  font-weight: 500;
+  margin: 0;
+  padding: 0 0.5rem;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d1d5db;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.dot:hover {
+  background: #8fbc3f;
+  transform: scale(1.3);
+}
+
+.dot.active {
+  background: #8fbc3f;
+  width: 28px;
+  border-radius: 8px;
 }
 
 .content-text {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  align-items: start;
 }
 
 .company-badge {
@@ -50,6 +210,7 @@
   padding: 1.5rem;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  grid-column: 1 / -1;
 }
 
 .badge-icon {
@@ -94,6 +255,7 @@
   border-radius: 15px;
   color: white;
   box-shadow: 0 10px 30px rgba(143, 188, 63, 0.3);
+  grid-column: 1 / -1;
 }
 
 .exp-number {
@@ -117,6 +279,7 @@
   background: white;
   padding: 2rem;
   border-radius: 15px;
+  grid-column: 1 / -1;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -128,15 +291,14 @@
 }
 
 .content-visual {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  display: none;
 }
 
 .mision-vision {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .card {
@@ -180,55 +342,23 @@
 }
 
 .valores-section {
-  background: white;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: none;
 }
 
 .valores-title {
-  text-align: center;
-  color: #2c3e50;
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
+  display: none;
 }
 
 .valores-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  display: none;
 }
 
 .valor-card {
-  text-align: center;
-  padding: 1.2rem;
-  background: #f8f9fa;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-}
-
-.valor-card:hover {
-  background: #8fbc3f;
-  color: white;
-  transform: scale(1.05);
+  display: none;
 }
 
 .valor-icon {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.valor-card h4 {
-  margin: 0.5rem 0;
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
-.valor-card p {
-  margin: 0;
-  font-size: 0.85rem;
-  opacity: 0.9;
+  display: none;
 }
 
 .politica-section {
@@ -260,17 +390,53 @@
     padding: 4rem 1.5rem;
   }
 
-  .section-title {
+  .quienes-somos .section-title {
     font-size: 2.5rem;
   }
 
   .content-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2rem;
   }
 
-  .valores-grid {
+  .content-text {
     grid-template-columns: 1fr;
+  }
+
+  .mision-vision {
+    grid-template-columns: 1fr;
+  }
+
+  .valores-carousel-section {
+    padding: 1.2rem 1rem 0.8rem;
+  }
+
+  .valores-main-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .valores-track {
+    width: 200%;
+  }
+
+  .valor-item {
+    flex: 0 0 calc(12.5% - 0.875rem);
+    max-width: 110px;
+    min-width: 90px;
+    height: 70px;
+    padding: 0.6rem 0.5rem;
+  }
+
+  .valor-icon-large {
+    font-size: 2rem;
+  }
+
+  .valor-title-large {
+    font-size: 0.7rem;
+  }
+
+  .valor-back p {
+    font-size: 0.7rem;
   }
 
   .experience-box {
@@ -280,7 +446,7 @@
 }
 
 @media (max-width: 480px) {
-  .section-title {
+  .quienes-somos .section-title {
     font-size: 2rem;
   }
 
@@ -295,6 +461,45 @@
 
   .exp-number {
     font-size: 3rem;
+  }
+
+  .valores-main-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .valores-carousel {
+    padding: 0.6rem 0 0.3rem;
+  }
+
+  .valores-track {
+    width: 200%;
+  }
+
+  .valor-item {
+    flex: 0 0 calc(12.5% - 0.875rem);
+    max-width: 90px;
+    min-width: 80px;
+    height: 65px;
+    padding: 0.5rem 0.4rem;
+  }
+
+  .valor-icon-large {
+    font-size: 1.6rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .valor-title-large {
+    font-size: 0.65rem;
+  }
+
+  .valor-back p {
+    font-size: 0.65rem;
+    padding: 0 0.3rem;
+  }
+
+  .carousel-dots {
+    margin-top: 0.8rem;
   }
 
   .politica-section {

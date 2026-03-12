@@ -196,6 +196,10 @@
     font-size: 1rem;
   }
   
+  .logo-info p {
+    font-size: 0.65rem;
+  }
+  
   .logo-circle {
     width: 40px;
     height: 40px;

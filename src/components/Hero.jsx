@@ -89,21 +89,6 @@ const Hero = () => {
           ></button>
         ))}
       </div>
-
-      <div className="hero-stats">
-        <div className="stat">
-          <h3>+</h3>
-          <p>Clientes Satisfechos</p>
-        </div>
-        <div className="stat">
-          <h3>100%</h3>
-          <p>Garantía de Servicio</p>
-        </div>
-        <div className="stat">
-          <h3>24/7</h3>
-          <p>Atención al Cliente</p>
-        </div>
-      </div>
     </section>
   );
 };

@@ -135,6 +135,30 @@
   max-height: 2000px;
 }
 
+/* Estilos para las descripciones de texto */
+.plagas-description {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  margin-top: 1.5rem;
+}
+
+.plagas-description.expanded {
+  max-height: 500px;
+}
+
+.plagas-description p {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: justify;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
 .plaga-card {
   background: white;
   padding: 1.5rem;
@@ -313,6 +337,31 @@
 .plagas-list.expanded {
   max-height: 2000px;
   padding: 1rem 2rem 2rem;
+}
+
+/* Estilos para descripciones desktop */
+.plagas-description-desktop {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  background: #f8f9fa;
+}
+
+.plagas-description-desktop.expanded {
+  max-height: 500px;
+  padding: 1.5rem 2rem 2rem;
+}
+
+.plagas-description-desktop p {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: justify;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .plaga-item {

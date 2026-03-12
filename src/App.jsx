@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import QuienesSomos from './components/QuienesSomos';
 import Servicios from './components/Servicios';
 import Plagas from './components/Plagas';
+import CTA from './components/CTA';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import './App.css';
@@ -15,6 +16,7 @@ function App() {
       <QuienesSomos />
       <Servicios />
       <Plagas />
+      <CTA />
       <Footer />
       <WhatsAppButton />
     </div>

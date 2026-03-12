@@ -1,6 +1,6 @@
 # 🦟 FUMIGAINSECTOS S.A.S. - Landing Page
 
-Landing Page profesional desarrollada en React para la empresa de control de plagas **MUNDO CONTROL EXPERTOS S.A.S. - FUMIGAINSECTOS**.
+Landing Page profesional desarrollada en React para la empresa de control de plagas **FUMIGAINSECTOS S.A.S.**.
 
 ## 🚀 Características
 
@@ -182,13 +182,13 @@ npm run preview
 
 - **NIT**: 902.033.262-7
 - **WhatsApp**: 317-268-18-57
-- **Celular**: 320-268-18-36
+- **Celular**: 317-790-13-50
 - **Email**: serviciosfumigainsectossas@gmail.com
 - **Dirección**: Carrera 45 N° 92-21 Oficina 401, Barrio Aranjuez, Medellín - Antioquia
 
 ## 📄 Licencia
 
-© 2026 MUNDO CONTROL EXPERTOS S.A.S. - FUMIGAINSECTOS. Todos los derechos reservados.
+© 2026 FUMIGAINSECTOS S.A.S. Todos los derechos reservados.
 
 ---
 

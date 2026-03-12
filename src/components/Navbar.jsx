@@ -30,7 +30,7 @@ const Navbar = () => {
           </div>
           <div className="logo-info">
             <h2>FUMIGAINSECTOS</h2>
-            <p>S.A.S.</p>
+            <p>S.A.S. - NIT: 902.033.262-7</p>
           </div>
         </div>
 

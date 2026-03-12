@@ -9,19 +9,19 @@
   margin: 0 auto;
 }
 
-.section-header {
+.servicios .section-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.section-title {
+.servicios .section-title {
   font-size: 3rem;
-  color: #2c3e50;
+  color: #1a1a1a;
   margin-bottom: 1rem;
   font-weight: 800;
 }
 
-.title-underline {
+.servicios .title-underline {
   width: 100px;
   height: 4px;
   background: linear-gradient(90deg, #8fbc3f, #6d9e2f);
@@ -29,11 +29,12 @@
   border-radius: 2px;
 }
 
-.section-subtitle {
+.servicios .section-subtitle {
   font-size: 1.2rem;
-  color: #666;
+  color: #2c3e50;
   max-width: 700px;
   margin: 0 auto;
+  font-weight: 500;
 }
 
 .servicios-grid {
@@ -180,62 +181,16 @@
   font-size: 1rem;
 }
 
-.cta-section {
-  background: linear-gradient(135deg, #8fbc3f, #6d9e2f);
-  padding: 4rem 3rem;
-  border-radius: 20px;
-  text-align: center;
-  color: white;
-  box-shadow: 0 15px 40px rgba(143, 188, 63, 0.3);
-}
-
-.cta-section h3 {
-  font-size: 2.5rem;
-  margin: 0 0 1rem 0;
-  font-weight: 800;
-}
-
-.cta-section p {
-  font-size: 1.2rem;
-  margin: 0 0 2rem 0;
-  opacity: 0.95;
-}
-
-.cta-button {
-  background: white;
-  color: #8fbc3f;
-  border: none;
-  padding: 1.2rem 3rem;
-  font-size: 1.2rem;
-  font-weight: 700;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-}
-
-.cta-button span {
-  font-size: 1.5rem;
-}
-
-.cta-button:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
-}
-
 @media (max-width: 968px) {
   .servicios {
     padding: 4rem 1.5rem;
   }
 
-  .section-title {
+  .servicios .section-title {
     font-size: 2.5rem;
   }
 
-  .section-subtitle {
+  .servicios .section-subtitle {
     font-size: 1.1rem;
   }
 
@@ -251,22 +206,14 @@
   .certificaciones-section {
     padding: 2rem;
   }
-
-  .cta-section {
-    padding: 3rem 2rem;
-  }
-
-  .cta-section h3 {
-    font-size: 2rem;
-  }
 }
 
 @media (max-width: 480px) {
-  .section-title {
+  .servicios .section-title {
     font-size: 2rem;
   }
 
-  .section-subtitle {
+  .servicios .section-subtitle {
     font-size: 1rem;
   }
 
@@ -280,18 +227,5 @@
 
   .cert-header h3 {
     font-size: 1.5rem;
-  }
-
-  .cta-section h3 {
-    font-size: 1.8rem;
-  }
-
-  .cta-section p {
-    font-size: 1rem;
-  }
-
-  .cta-button {
-    padding: 1rem 2rem;
-    font-size: 1rem;
   }
 }
